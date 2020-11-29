@@ -140,3 +140,7 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+.btn2 {
+  float: right;
+}

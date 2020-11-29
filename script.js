@@ -1,52 +1,55 @@
-var charCount = parseInt(prompt("Please enter a number between 8 - 128"))
+// character list
+var lowerChar = 'abcdefghijklmnopqrstuvwxyz'
 
+var upperChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-if(charcount >7 && charcount <= 128) {
+var numChar = '1234567890';
 
-  var finalchars=[]
-  var includeNumber = confirm('password should include number?')
-  var includeSymbols = confirm('password should include symbols?')
-  var includeUpperCase = confirm 
-  ('password should include uppercase letters?')
-  var includeLowerCase = confirm ('password should include lowercase letters?')
+var symChar = '!@#$^&%*()+=-[]{}|:<>?,.';
 
+//function to generate code
+function generateMe() {
+    var numberChoice = '';
+    numberChoice = prompt("Please choose password length 8-128");
+    
+    if (numberChoice >7 && numberChoice <= 128) { 
+      
+      if (numberChoice)
+      var numberC = confirm('Password should include number?')
+      var symbolC = confirm('Password should include symbols?')
+      var upperC = confirm('Password should include uppercase?')
+      var lowerC = confirm('Password should include lowercase?')
 
-  if (includeNumber) {
-    for (var i = 0; numericNumber.length;++i)
-finalchars.push (numericNumber[i])
-  }
-  if (includeNumber) {
-    for (var i = 0; numericNumber.length;++i)
-    finalchars.push (specialChar[i])
-  }
-if (includeNumber) {
-    for (var i = 0; numericNumber.length; ++i)
-    finalchars.push (upperCaseChar[i])
-}
-if (includeNumber) {
-    for (var i = 0; numericNumber.length; ++i) 
-    finalchars.push (lowerCaseChar)
-}
+  //character functions 
 
-  var flattenFinalChars = finalchars.flat()
-var password = ''
+    var characters = '';
+    characters += (lowerC ? lowerChar : '');
+    characters += (upperC ? upperChar : '');
+    characters += (symbolC ? symChar : '');
+    characters += (numberC ? numChar : '');
+  //new password 
+    newPass = password(numberChoice, characters);
 
+    document.getElementById("password").innerHTML = newPass;
 
-  for (var i = 0; charcount;++i) {
-    var randomIndex = math.floor (math.random() * flattenFinalChar.length)
-  }
-    var randomChar = flattenedFinalChars[randomIndex]
+    function password(l, characters) {
+        var newPass = '';
+        for (var i = 0; i < l; ++i) {
+            newPass += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return newPass;
+    }  
+  } 
+    if (lowerC === false && upperC === false && symbolC === false && numberC === false ) {
+       alert('Please start again!')
 
-    password += randomchar
-}
-
-// Var list
-var lowerCaseChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-var upperCaseChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-var numericNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-var specialChar = ['#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '['];
+    }
+  //   function copyMe() {
+  //     var copyText = document.getElementById('password');
+  // copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  // document.execCommand("copy");
+  // }
+  }
 
 
